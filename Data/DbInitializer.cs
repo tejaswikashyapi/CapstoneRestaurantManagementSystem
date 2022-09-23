@@ -30,7 +30,7 @@ namespace RestaurantManagementsystem.Data
                     _db.Database.Migrate();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
             }

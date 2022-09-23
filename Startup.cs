@@ -46,8 +46,7 @@ namespace RestaurantManagementsystem
             services.AddScoped<IDbInitializer, DbInitializer>();
             services.Configure<StripeSettings>(Configuration.GetSection("Stripe"));
 
-            services.AddSingleton<IEmailSender, EmailSender>();
-            services.Configure<EmailOptions>(Configuration);
+           
 
             services.AddControllersWithViews();
             services.AddRazorPages();
@@ -85,6 +84,7 @@ namespace RestaurantManagementsystem
 
             app.UseRouting();
 
+            StripeConfiguration.ApiKey = "sk_test_4eC39HqLyjWDarjtT1zdp7dc";
             StripeConfiguration.ApiKey = Configuration.GetSection("Stripe")["SecretKey"];
             dbInitializer.Initialize();
 
@@ -95,7 +95,7 @@ namespace RestaurantManagementsystem
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{area=Customer}/{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{area=Customer}/{controller=Home}/{action=Menu}/{id?}");
                 endpoints.MapRazorPages();
             });
         }

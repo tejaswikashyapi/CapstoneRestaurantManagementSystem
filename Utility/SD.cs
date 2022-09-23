@@ -75,12 +75,12 @@ namespace RestaurantManagementsystem.Utility
                     //everything is valid
                     if (Convert.ToInt32(couponFromDb.CouponType) == (int)Coupon.ECouponType.Dollar)
                     {
-                        //Dollar
+                        //$10 off $100
                         return Math.Round(OriginalOrderTotal - couponFromDb.Discount, 2);
                     }
                     if (Convert.ToInt32(couponFromDb.CouponType) == (int)Coupon.ECouponType.Percent)
                     {
-                        //Percentage
+                        //10% off $100
                         return Math.Round(OriginalOrderTotal - (OriginalOrderTotal * couponFromDb.Discount / 100), 2);
                     }
                 }

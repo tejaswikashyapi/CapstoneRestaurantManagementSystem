@@ -28,9 +28,15 @@ namespace RestaurantManagementsystem.Controllers
             _db = db;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> IndexAsync()
         {
-            return View();
+            MenuViewModel menuViewModel = new MenuViewModel()
+            {
+                MenuItem = await _db.MenuItem.Include(m => m.Category).Include(m => m.SubCategory).ToListAsync(),
+                Category = await _db.Category.ToListAsync(),
+                Coupon = await _db.Coupon.Where(c => c.IsActive == true).ToListAsync(),
+            };
+            return View(menuViewModel);
         }
         public async Task<IActionResult> Menu()
         {

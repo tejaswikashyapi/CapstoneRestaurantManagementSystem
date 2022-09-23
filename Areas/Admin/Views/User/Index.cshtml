@@ -28,9 +28,7 @@
                     <th>
                         @Html.DisplayNameFor(m => m.Email)
                     </th>
-                    <th>
-                        @Html.DisplayNameFor(m => m.PhoneNumber)
-                    </th>
+                   
                     <th></th>
                     <th></th>
                 </tr>
@@ -43,9 +41,7 @@
                 <td>
                     @Html.DisplayFor(m => item.Email)
                 </td>
-                <td>
-                    @Html.DisplayFor(m => item.PhoneNumber)
-                </td>
+               
                 <td>
 
                     @if (item.LockoutEnd == null || item.LockoutEnd < DateTime.Now)

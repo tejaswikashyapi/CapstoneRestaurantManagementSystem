@@ -1,11 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using RestaurantManagementsystem.Data;
 using RestaurantManagementsystem.Models;
 using RestaurantManagementsystem.Utility;
-using SendGrid.Helpers.Mail;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,11 +16,9 @@ namespace RestaurantManagementsystem.Areas.Admin.Controllers
     public class CategoryController : Controller
     {
         private readonly ApplicationDbContext _db;
-        private readonly ILogger<CategoryController> _logger;
-        public CategoryController(ApplicationDbContext db,ILogger<CategoryController> logger)
+        public CategoryController(ApplicationDbContext db)
         {
             _db = db;
-            _logger = logger;
         }
 
         //GET
@@ -42,17 +38,11 @@ namespace RestaurantManagementsystem.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Category category)
         {
-            category.Name = category.Name.Trim();
-            bool duplicateExists = _db.Category.Any(c => c.Name == category.Name);
-            if (duplicateExists)
-            {
-                ModelState.AddModelError("Name", "Duplicate Category Found!");
-            }
             if (ModelState.IsValid)
             {
                 _db.Category.Add(category);
                 await _db.SaveChangesAsync();
-                _logger.LogInformation($"Created a New Category: ID = {category.ID} !");
+
                 return RedirectToAction(nameof(Index));
             }
             return View(category);
@@ -78,15 +68,6 @@ namespace RestaurantManagementsystem.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Category category)
         {
-            category.Name = category.Name.Trim();
-
-            // Validation Checks - Server-side validation
-            bool duplicateExists = _db.Category
-                .Any(c => c.Name == category.Name && c.ID != category.ID);
-            if (duplicateExists)
-            {
-                ModelState.AddModelError("CategoryName", "Duplicate Category Found!");
-            }
             if (ModelState.IsValid)
             {
                 _db.Update(category);
