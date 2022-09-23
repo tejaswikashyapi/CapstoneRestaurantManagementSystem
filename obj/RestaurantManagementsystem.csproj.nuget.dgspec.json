@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\BIRLASOFT\\DOTNETTRAINING\\Restro-master\\RestaurantManagementsystem.csproj": {}
+    "E:\\BIRLASOFT\\DOTNETTRAINING\\capstoneproject3\\RestaurantManagementsystem.csproj": {}
   },
   "projects": {
-    "E:\\BIRLASOFT\\DOTNETTRAINING\\Restro-master\\RestaurantManagementsystem.csproj": {
+    "E:\\BIRLASOFT\\DOTNETTRAINING\\capstoneproject3\\RestaurantManagementsystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\BIRLASOFT\\DOTNETTRAINING\\Restro-master\\RestaurantManagementsystem.csproj",
+        "projectUniqueName": "E:\\BIRLASOFT\\DOTNETTRAINING\\capstoneproject3\\RestaurantManagementsystem.csproj",
         "projectName": "RestaurantManagementsystem",
-        "projectPath": "E:\\BIRLASOFT\\DOTNETTRAINING\\Restro-master\\RestaurantManagementsystem.csproj",
+        "projectPath": "E:\\BIRLASOFT\\DOTNETTRAINING\\capstoneproject3\\RestaurantManagementsystem.csproj",
         "packagesPath": "C:\\Users\\kashy\\.nuget\\packages\\",
-        "outputPath": "E:\\BIRLASOFT\\DOTNETTRAINING\\Restro-master\\obj\\",
+        "outputPath": "E:\\BIRLASOFT\\DOTNETTRAINING\\capstoneproject3\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
